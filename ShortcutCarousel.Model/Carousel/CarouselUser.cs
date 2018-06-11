@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using Microsoft.Practices.Prism.ViewModel;
+using ShortcutCarousel.Settings;
+using ShortcutCarousel.Clipboard;
 
 namespace ShortcutCarousel.Model
 {
@@ -14,31 +16,31 @@ namespace ShortcutCarousel.Model
 	{
 		public CarouselUser()
 		{
-			this.copyPasteItems = new ObservableCollection<ICarouselItem>();
-			this.fileDropItems = new ObservableCollection<ICarouselItem>();
+			this.CopyPasteItems = new ObservableCollection<ICarouselCopyPasteItem>();
+			this.FileDropItems = new ObservableCollection<ICarouselFileDropItem>();
 		}
 
-		private readonly IList<ICarouselItem> copyPasteItems;
-		private readonly IList<ICarouselItem> fileDropItems;
-
-		[DataMember]
-		public IList<ICarouselItem> CopyPasteItems
+		public CarouselUser(CarouselUserDTO carouselUser, IClipboardService clipboardService, ICarouselColorSettings carouselColorSettings) : this()
 		{
-			get
+			this.Name = carouselUser.Name;
+
+			foreach (CarouselCopyPasteItemDTO carouselCopyPasteItem in carouselUser.CopyPasteItems)
 			{
-				return this.copyPasteItems;
+				this.CopyPasteItems.Add(new CarouselCopyPasteItem(carouselCopyPasteItem, clipboardService, carouselColorSettings));
+			}
+
+			foreach (CarouselFileDropItemDTO carouselFileDropItem in carouselUser.FileDropItems)
+			{
+				this.FileDropItems.Add(new CarouselFileDropItem(carouselFileDropItem, carouselColorSettings));
 			}
 		}
 
-		[DataMember]
-		public IList<ICarouselItem> FileDropItems
-		{
-			get
-			{
-				return this.fileDropItems;
-			}
-		}
+        [DataMember]
+        public IList<ICarouselCopyPasteItem> CopyPasteItems { get; private set; }
 
+        [DataMember]
+        public IList<ICarouselFileDropItem> FileDropItems { get; private set; }
+        
 		private string name;
 		[DataMember]
 		public string Name

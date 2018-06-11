@@ -35,6 +35,7 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
@@ -45,16 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CarouselDTO\CarouselCopyPasteItemDTO.cs" />
+    <Compile Include="CarouselDTO\CarouselFileDropItemDTO.cs" />
+    <Compile Include="CarouselDTO\CarouselUserDTO.cs" />
+    <Compile Include="Carousel\ICarouselCopyPasteItem.cs" />
+    <Compile Include="Carousel\ICarouselFileDropItem.cs" />
+    <Compile Include="Repositories\CarouselUserRepository.cs" />
     <Compile Include="Carousel\CarouselCopyPasteItem.cs" />
     <Compile Include="Carousel\CarouselFileDropItem.cs" />
     <Compile Include="Carousel\CarouselItem.cs" />
     <Compile Include="Carousel\CarouselUser.cs" />
+    <Compile Include="DropProcessors\ICarouselDropProcessorProvider.cs" />
     <Compile Include="Enums\ColorType.cs" />
     <Compile Include="Helpers\ColorHelper.cs" />
     <Compile Include="Helpers\HSLColor.cs" />
     <Compile Include="DropProcessors\ICarouselDropProcessor.cs" />
     <Compile Include="Carousel\ICarouselItem.cs" />
     <Compile Include="Carousel\ICarouselUser.cs" />
+    <Compile Include="Repositories\ICarouselUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +76,7 @@
       <Name>ShortcutCarousel.Settings</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="SpicNSpan" AfterTargets="Clean">
     <RemoveDir Directories="$(TargetDir)" />

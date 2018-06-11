@@ -11,6 +11,8 @@ using System.Runtime.Serialization;
 namespace ShortcutCarousel.Model
 {
 	[DataContract]
+    [KnownType(typeof(CarouselCopyPasteItem))]
+    [KnownType(typeof(CarouselFileDropItem))]
 	public abstract class CarouselItem : NotificationObject, ICarouselItem
 	{
 		private ICarouselColorSettings carouselColorSettings;
@@ -22,8 +24,7 @@ namespace ShortcutCarousel.Model
 
 		public abstract void Clicked();
 		public abstract void ReceiveDrop(IEnumerable<string> paths);
-
-		[DataMember]
+        
 		public abstract bool AcceptsDrops { get; }
 
 		private string displayName;

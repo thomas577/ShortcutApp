@@ -9,7 +9,7 @@ namespace ShortcutCarousel.Model
 	public interface ICarouselUser
 	{
 		string Name { get; }
-		IList<ICarouselItem> CopyPasteItems { get; }
-		IList<ICarouselItem> FileDropItems { get; }
+		IList<ICarouselCopyPasteItem> CopyPasteItems { get; }
+		IList<ICarouselFileDropItem> FileDropItems { get; }
 	}
 }

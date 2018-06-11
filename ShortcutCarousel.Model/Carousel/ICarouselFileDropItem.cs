@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShortcutCarousel.Services
+namespace ShortcutCarousel.Model
 {
-    public interface IAppSettings : IUserXmlConfigurationPath
+    public interface ICarouselFileDropItem : ICarouselItem
     {
-        
+        string DropProcessorName { get; }
     }
 }

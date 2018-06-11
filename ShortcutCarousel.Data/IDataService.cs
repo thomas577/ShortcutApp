@@ -9,6 +9,7 @@ namespace ShortcutCarousel.Data
 {
 	public interface IDataService
 	{
-
+        ICarouselUser LoadUserByName(string name);
+        void SaveUser(ICarouselUser user);
 	}
 }

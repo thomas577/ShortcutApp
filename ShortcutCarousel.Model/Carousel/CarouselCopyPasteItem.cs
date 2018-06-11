@@ -10,7 +10,7 @@ using ShortcutCarousel.Settings;
 namespace ShortcutCarousel.Model
 {
 	[DataContract]
-	public class CarouselCopyPasteItem : CarouselItem, ICarouselItem
+	public class CarouselCopyPasteItem : CarouselItem, ICarouselItem, ICarouselCopyPasteItem
 	{
 		private IClipboardService clipboardService;
 
@@ -18,6 +18,18 @@ namespace ShortcutCarousel.Model
 			: base(carouselColorSettings)
 		{
 			this.clipboardService = clipboardService;
+		}
+
+		public CarouselCopyPasteItem(CarouselCopyPasteItemDTO carouselCopyPasteItem, IClipboardService clipboardService, ICarouselColorSettings carouselColorSettings)
+			: base(carouselColorSettings)
+		{
+			this.clipboardService = clipboardService;
+			this.Content = carouselCopyPasteItem.Content;
+			this.DisplayName = carouselCopyPasteItem.DisplayName;
+			this.DisplayOrder = carouselCopyPasteItem.DisplayOrder;
+			this.ColorType = carouselCopyPasteItem.ColorType;
+			this.ColorHue = carouselCopyPasteItem.ColorHue;
+			this.ColorLuminosity = carouselCopyPasteItem.ColorLuminosity;
 		}
 
 		private string content;

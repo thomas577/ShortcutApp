@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IApplicationSettings.cs" />
+    <Compile Include="Interfaces\ICarouselUsersSavePath.cs" />
     <Compile Include="Interfaces\ICarouselColorSettings.cs" />
     <Compile Include="Interfaces\IWindowSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

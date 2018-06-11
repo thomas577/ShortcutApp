@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Practices.ServiceLocation;
 using ShortcutCarousel.Modules;
-using ShortcutCarousel.Services;
+using ShortcutCarousel.Settings;
 
 namespace ShortcutCarousel.Shell
 {

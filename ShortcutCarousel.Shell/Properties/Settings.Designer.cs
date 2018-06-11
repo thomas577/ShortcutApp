@@ -91,5 +91,17 @@ namespace ShortcutCarousel.Shell.Properties {
                 return ((double)(this["DefaultLuminosity"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CarouselUsersSavePath {
+            get {
+                return ((string)(this["CarouselUsersSavePath"]));
+            }
+            set {
+                this["CarouselUsersSavePath"] = value;
+            }
+        }
     }
 }

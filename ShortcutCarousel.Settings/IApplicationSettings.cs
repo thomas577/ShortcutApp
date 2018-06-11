@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShortcutCarousel.Settings
 {
-    public interface IApplicationSettings : IWindowSettings, ICarouselColorSettings
+    public interface IApplicationSettings : IWindowSettings, ICarouselColorSettings, ICarouselUsersSavePath
     {
         object GetPreviousVersion(string propertyName);
         void Reload();

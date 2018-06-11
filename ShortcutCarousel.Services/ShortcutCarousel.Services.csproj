@@ -60,16 +60,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppSettings\AppSettings.cs" />
-    <Compile Include="Configuration\CarouselConfiguration.cs" />
-    <Compile Include="Configuration\CarouselConfigurationDataMapper.cs" />
-    <Compile Include="Configuration\ConfigurationProvider.cs" />
-    <Compile Include="Configuration\ICarouselConfiguration.cs" />
-    <Compile Include="Configuration\ICarouselConfigurationDataMapper.cs" />
-    <Compile Include="Configuration\IWindowSizeConfiguration.cs" />
-    <Compile Include="Configuration\IConfigurationProvider.cs" />
-    <Compile Include="AppSettings\IAppSettings.cs" />
-    <Compile Include="AppSettings\IUserXmlConfigurationPath.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

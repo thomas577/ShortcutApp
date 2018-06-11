@@ -9,6 +9,9 @@ namespace ShortcutCarousel.Shell.Properties {
     //  The SettingsLoaded event is raised after the setting values are loaded.
     //  The SettingsSaving event is raised before the setting values are saved.
     [Export(typeof(ShortcutCarousel.Settings.IApplicationSettings))]
+    [Export(typeof(ShortcutCarousel.Settings.IWindowSettings))]
+    [Export(typeof(ShortcutCarousel.Settings.ICarouselColorSettings))]
+    [Export(typeof(ShortcutCarousel.Settings.ICarouselUsersSavePath))]
     public sealed partial class Settings : ShortcutCarousel.Settings.IApplicationSettings {
         
         public Settings() {

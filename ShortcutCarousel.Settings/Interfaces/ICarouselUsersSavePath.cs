@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShortcutCarousel.Services
+namespace ShortcutCarousel.Settings
 {
-    public interface IUserXmlConfigurationPath
+    public interface ICarouselUsersSavePath
     {
-        string UserXmlConfigurationPath { get; }
+        string CarouselUsersSavePath { get; }
     }
 }
