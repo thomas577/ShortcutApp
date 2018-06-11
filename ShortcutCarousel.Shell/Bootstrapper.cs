@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Practices.ServiceLocation;
+using ShortcutCarousel.Modules;
+using ShortcutCarousel.Services;
 
 namespace ShortcutCarousel.Shell
 {
@@ -32,19 +34,20 @@ namespace ShortcutCarousel.Shell
 
 			// Add this assembly to export ModuleTracker
 			this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(Bootstrapper).Assembly));
+            this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(IApplicationSettings).Assembly));
 
-			// Module A is referenced in in the project and directly in code.
-			//this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(ModuleA).Assembly));
-			//this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(ModuleC).Assembly));
+            // Module A is referenced in in the project and directly in code.
+            //this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(ModuleA).Assembly));
+            //this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(ModuleC).Assembly));
 
-			// Module B and Module D are copied to a directory as part of a post-build step.
-			// These modules are not referenced in the project and are discovered by inspecting a directory.
-			// Both projects have a post-build step to copy themselves into that directory.
-			//DirectoryCatalog catalog = new DirectoryCatalog("DirectoryModules");
-			//this.AggregateCatalog.Catalogs.Add(catalog);
-		}
+            // Module B and Module D are copied to a directory as part of a post-build step.
+            // These modules are not referenced in the project and are discovered by inspecting a directory.
+            // Both projects have a post-build step to copy themselves into that directory.
+            //DirectoryCatalog catalog = new DirectoryCatalog("DirectoryModules");
+            //this.AggregateCatalog.Catalogs.Add(catalog);
+        }
 
-		protected override IModuleCatalog CreateModuleCatalog()
+        protected override IModuleCatalog CreateModuleCatalog()
 		{
 			// When using MEF, the existing Prism ModuleCatalog is still the place to configure modules via configuration files.
 			return new ConfigurationModuleCatalog();

@@ -1,17 +1,45 @@
-﻿<Window x:Class="ShortcutCarousel.Shell.Shell"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ShortcutCarousel.Shell"
-        mc:Ignorable="d"
-        Title="Shell" Height="350" Width="525">
+﻿<mahcontrols:MetroWindow x:Class="ShortcutCarousel.Shell.Shell"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                         xmlns:local="clr-namespace:ShortcutCarousel.Shell"
+                         xmlns:mahcontrols="http://metro.mahapps.com/winfx/xaml/controls"
+                         mc:Ignorable="d"
+                         Title="Shortcut Carousel" 
+                         Height="{Binding WindowHeight, Mode=TwoWay}" 
+                         Width="{Binding WindowWidth, Mode=TwoWay}"
+                         Left="{Binding WindowLeft, Mode=TwoWay}" 
+                         Top="{Binding WindowTop, Mode=TwoWay}" 
+                         Topmost="True"
+                         TitleCaps="False"
+                         Icon="Images/ShortcutApp.ico"
+                         AllowDrop="True"
+                         Drop="MetroWindow_Drop"
+						 DragEnter="MetroWindow_DragEnter"
+						 DragLeave="MetroWindow_DragLeave">
+    <mahcontrols:MetroWindow.IconTemplate>
+        <DataTemplate>
+            <Image Width="{TemplateBinding Width}"
+                   Height="{TemplateBinding Height}"
+                   Source="{TemplateBinding Content}"
+                   Margin="5"
+                   RenderOptions.EdgeMode="Aliased"
+                   RenderOptions.BitmapScalingMode="HighQuality" />
+        </DataTemplate>
+    </mahcontrols:MetroWindow.IconTemplate>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closing">
+            <i:InvokeCommandAction Command="{Binding SaveWindowWidthCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <ContentControl Grid.Row="0"></ContentControl>
         <ContentControl Grid.Row="1"></ContentControl>
     </Grid>
-</Window>
+</mahcontrols:MetroWindow>
