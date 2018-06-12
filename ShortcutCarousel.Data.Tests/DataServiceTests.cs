@@ -5,6 +5,8 @@ using ShortcutCarousel.Data;
 using ShortcutCarousel.Clipboard;
 using ShortcutCarousel.Settings;
 using System.IO;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ShortcutCarousel.Data.Tests
 {
@@ -16,6 +18,9 @@ namespace ShortcutCarousel.Data.Tests
         {
             IClipboardService clip = new ClipboardServiceMock();
             ICarouselColorSettings colorSettings = new CarouselColorSettingsMock();
+            ICarouselUsersSavePath savePath = new CarouselUsersSavePathMock();
+            ICarouselUserRepository repo = new CarouselUserRepository(savePath, clip, colorSettings);
+            DataService dataService = new DataService(repo);
             CarouselUser thomas = new CarouselUser();
             thomas.Name = "thomas";
             thomas.CopyPasteItems.Add(new CarouselCopyPasteItem(clip, colorSettings)
@@ -23,20 +28,20 @@ namespace ShortcutCarousel.Data.Tests
                 Content = "content 1 for thomas",
                 DisplayName = "content 1"
             });
-            ICarouselUsersSavePath savePath = new CarouselUsersSavePathMock();
-            ICarouselUserRepository repo = new CarouselUserRepository(savePath, clip, colorSettings);
-            DataService dataService = new DataService(repo);
-
+            
             dataService.SaveUser(thomas);
 
             Assert.IsTrue(File.Exists(Path.Combine(savePath.CarouselUsersSavePath, "thomas.xml")));
         }
 
         [TestMethod]
-        public void LoadUserByName_thomas_Success()
+        public void LoadUserByName_antoine_Success()
         {
             IClipboardService clip = new ClipboardServiceMock();
             ICarouselColorSettings colorSettings = new CarouselColorSettingsMock();
+            ICarouselUsersSavePath savePath = new CarouselUsersSavePathMock();
+            ICarouselUserRepository repo = new CarouselUserRepository(savePath, clip, colorSettings);
+            DataService dataService = new DataService(repo);
             CarouselUser antoine = new CarouselUser();
             antoine.Name = "antoine";
             antoine.CopyPasteItems.Add(new CarouselCopyPasteItem(clip, colorSettings)
@@ -44,14 +49,45 @@ namespace ShortcutCarousel.Data.Tests
                 Content = "content 1 for antoine",
                 DisplayName = "content 1"
             });
-            ICarouselUsersSavePath savePath = new CarouselUsersSavePathMock();
-            ICarouselUserRepository repo = new CarouselUserRepository(savePath, clip, colorSettings);
-            DataService dataService = new DataService(repo);
 
             dataService.SaveUser(antoine);
             ICarouselUser loadedUser = dataService.LoadUserByName("antoine");
 
             Assert.AreEqual(loadedUser.Name, "antoine");
+        }
+
+        [TestMethod]
+        public void GetAllUserNames_NonEmpty_TwoElements()
+        {
+            IClipboardService clip = new ClipboardServiceMock();
+            ICarouselColorSettings colorSettings = new CarouselColorSettingsMock();
+            ICarouselUsersSavePath savePath = new CarouselUsersSavePathMock();
+            ICarouselUserRepository repo = new CarouselUserRepository(savePath, clip, colorSettings);
+            DataService dataService = new DataService(repo);
+
+            CarouselUser thomas = new CarouselUser();
+            thomas.Name = "thomas";
+            thomas.CopyPasteItems.Add(new CarouselCopyPasteItem(clip, colorSettings)
+            {
+                Content = "content 1 for thomas",
+                DisplayName = "content 1"
+            });
+
+            CarouselUser antoine = new CarouselUser();
+            antoine.Name = "antoine";
+            antoine.CopyPasteItems.Add(new CarouselCopyPasteItem(clip, colorSettings)
+            {
+                Content = "content 1 for antoine",
+                DisplayName = "content 1"
+            });
+
+            dataService.SaveUser(thomas);
+            dataService.SaveUser(antoine);
+
+            IList<string> allUserNames = dataService.GetAllUserNames();
+
+            CollectionAssert.Contains(allUserNames.ToList(), "thomas");
+            CollectionAssert.Contains(allUserNames.ToList(), "antoine");
         }
     }
 

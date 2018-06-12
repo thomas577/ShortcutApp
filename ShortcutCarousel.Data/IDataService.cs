@@ -11,5 +11,6 @@ namespace ShortcutCarousel.Data
 	{
         ICarouselUser LoadUserByName(string name);
         void SaveUser(ICarouselUser user);
-	}
+        IList<string> GetAllUserNames();
+    }
 }

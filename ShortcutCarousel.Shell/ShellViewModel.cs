@@ -113,29 +113,29 @@ namespace ShortcutCarousel.Shell
         }
         #endregion WindowTop
 
-        #region SaveWindowWidthCommand
-        private ICommand saveWindowWidthCommand;
-        public ICommand SaveWindowWidthCommand
+        #region SaveWindowSettingsCommand
+        private ICommand saveWindowSettingsCommand;
+        public ICommand SaveWindowSettingsCommand
         {
             get
             {
-                if (this.saveWindowWidthCommand == null)
+                if (this.saveWindowSettingsCommand == null)
                 {
-                    this.saveWindowWidthCommand = new DelegateCommand(this.ExecuteSaveWindowWidth, this.CanExecuteSaveWindowWidth);
+                    this.saveWindowSettingsCommand = new DelegateCommand(this.ExecuteSaveWindowSettings, this.CanExecuteSaveWindowSettings);
                 }
-                return this.saveWindowWidthCommand;
+                return this.saveWindowSettingsCommand;
             }
         }
 
-        public void ExecuteSaveWindowWidth()
+        public void ExecuteSaveWindowSettings()
         {
             this.applicationSettings.Save();
         }
 
-        public bool CanExecuteSaveWindowWidth()
+        public bool CanExecuteSaveWindowSettings()
         {
             return true;
         }
-        #endregion SaveWindowWidthCommand
+        #endregion SaveWindowSettingsCommand
     }
 }

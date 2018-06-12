@@ -6,6 +6,7 @@
                          xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
                          xmlns:local="clr-namespace:ShortcutCarousel.Shell"
                          xmlns:mahcontrols="http://metro.mahapps.com/winfx/xaml/controls"
+                         xmlns:cad="http://www.codeplex.com/prism"
                          mc:Ignorable="d"
                          Title="Shortcut Carousel" 
                          Height="{Binding WindowHeight, Mode=TwoWay}" 
@@ -31,15 +32,15 @@
     </mahcontrols:MetroWindow.IconTemplate>
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Closing">
-            <i:InvokeCommandAction Command="{Binding SaveWindowWidthCommand}" />
+            <i:InvokeCommandAction Command="{Binding SaveWindowSettingsCommand}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <ContentControl Grid.Row="0"></ContentControl>
-        <ContentControl Grid.Row="1"></ContentControl>
+        <ContentControl Grid.Row="0" cad:RegionManager.RegionName="ShortcutCarouselMenuRegion"></ContentControl>
+        <ContentControl Grid.Row="1" cad:RegionManager.RegionName="ShortcutRegion"></ContentControl>
     </Grid>
 </mahcontrols:MetroWindow>

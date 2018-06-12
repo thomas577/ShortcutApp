@@ -19,17 +19,6 @@ namespace ShortcutCarousel.Model
 
 		}
 
-		public CarouselFileDropItem(CarouselFileDropItemDTO carouselFileDropItem, ICarouselColorSettings carouselColorSettings)
-			: base(carouselColorSettings)
-		{
-			this.DropProcessorName = carouselFileDropItem.DropProcessorName;
-			this.DisplayName = carouselFileDropItem.DisplayName;
-			this.DisplayOrder = carouselFileDropItem.DisplayOrder;
-			this.ColorType = carouselFileDropItem.ColorType;
-			this.ColorHue = carouselFileDropItem.ColorHue;
-			this.ColorLuminosity = carouselFileDropItem.ColorLuminosity;
-		}
-
 		private string dropProcessorName;
 		[DataMember]
 		public string DropProcessorName

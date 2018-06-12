@@ -20,18 +20,6 @@ namespace ShortcutCarousel.Model
 			this.clipboardService = clipboardService;
 		}
 
-		public CarouselCopyPasteItem(CarouselCopyPasteItemDTO carouselCopyPasteItem, IClipboardService clipboardService, ICarouselColorSettings carouselColorSettings)
-			: base(carouselColorSettings)
-		{
-			this.clipboardService = clipboardService;
-			this.Content = carouselCopyPasteItem.Content;
-			this.DisplayName = carouselCopyPasteItem.DisplayName;
-			this.DisplayOrder = carouselCopyPasteItem.DisplayOrder;
-			this.ColorType = carouselCopyPasteItem.ColorType;
-			this.ColorHue = carouselCopyPasteItem.ColorHue;
-			this.ColorLuminosity = carouselCopyPasteItem.ColorLuminosity;
-		}
-
 		private string content;
 		[DataMember]
 		public string Content

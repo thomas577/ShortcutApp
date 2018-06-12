@@ -10,6 +10,8 @@ using System.Windows;
 using Microsoft.Practices.ServiceLocation;
 using ShortcutCarousel.Modules;
 using ShortcutCarousel.Settings;
+using ShortcutCarousel.Clipboard;
+using ShortcutCarousel.Data;
 
 namespace ShortcutCarousel.Shell
 {
@@ -35,6 +37,8 @@ namespace ShortcutCarousel.Shell
 			// Add this assembly to export ModuleTracker
 			this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(Bootstrapper).Assembly));
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(IApplicationSettings).Assembly));
+            this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(IClipboardService).Assembly));
+            this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(IDataService).Assembly));
 
             // Module A is referenced in in the project and directly in code.
             //this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(ModuleA).Assembly));

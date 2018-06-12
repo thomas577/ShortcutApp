@@ -8,12 +8,12 @@ namespace ShortcutCarousel.Shell.Properties {
     //  The PropertyChanged event is raised after a setting's value is changed.
     //  The SettingsLoaded event is raised after the setting values are loaded.
     //  The SettingsSaving event is raised before the setting values are saved.
-    [Export(typeof(ShortcutCarousel.Settings.IApplicationSettings))]
-    [Export(typeof(ShortcutCarousel.Settings.IWindowSettings))]
-    [Export(typeof(ShortcutCarousel.Settings.ICarouselColorSettings))]
-    [Export(typeof(ShortcutCarousel.Settings.ICarouselUsersSavePath))]
-    public sealed partial class Settings : ShortcutCarousel.Settings.IApplicationSettings {
-        
+	public sealed partial class Settings : 
+		ShortcutCarousel.Settings.IApplicationSettings,
+		ShortcutCarousel.Settings.IWindowSettings,
+		ShortcutCarousel.Settings.ICarouselColorSettings,
+		ShortcutCarousel.Settings.ICarouselUsersSavePath
+	{
         public Settings() {
             // // To add event handlers for saving and changing settings, uncomment the lines below:
             //

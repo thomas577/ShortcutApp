@@ -85,6 +85,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ApplicationSettings.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="ShellViewModel.cs" />
     <Page Include="Shell.xaml">
@@ -129,6 +130,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ShortcutCarousel.Clipboard\ShortcutCarousel.Clipboard.csproj">
+      <Project>{dd528972-a0eb-4460-91e2-83a19a4e0adf}</Project>
+      <Name>ShortcutCarousel.Clipboard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShortcutCarousel.Data\ShortcutCarousel.Data.csproj">
+      <Project>{e787326a-1b0d-484d-9b35-5c70eea20db8}</Project>
+      <Name>ShortcutCarousel.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShortcutCarousel.Model\ShortcutCarousel.Model.csproj">
+      <Project>{23345062-54d8-42a1-b63d-eadfeb7100b7}</Project>
+      <Name>ShortcutCarousel.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ShortcutCarousel.Modules\ShortcutCarousel.Modules.csproj">
       <Project>{4db899e2-4a44-45df-826c-7af2228c1d9d}</Project>
       <Name>ShortcutCarousel.Modules</Name>

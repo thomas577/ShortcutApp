@@ -89,7 +89,32 @@ namespace ShortcutCarousel.Model
             DataContractSerializer serializer = new DataContractSerializer(typeof(CarouselUserDTO));
             using (FileStream fs = File.Open(path, FileMode.Open))
             {
-                return new CarouselUser((CarouselUserDTO)serializer.ReadObject(fs), this.clipboardService, this.carouselColorSettings);
+                CarouselUserDTO userDTO = (CarouselUserDTO)serializer.ReadObject(fs);
+                CarouselUser user = new CarouselUser();
+                user.Name = userDTO.Name;
+                foreach (CarouselCopyPasteItemDTO carouselCopyPasteItemDTO in userDTO.CopyPasteItems)
+                {
+                    CarouselCopyPasteItem carouselCopyPasteItem = new CarouselCopyPasteItem(this.clipboardService, this.carouselColorSettings);
+                    carouselCopyPasteItem.Content = carouselCopyPasteItemDTO.Content;
+                    carouselCopyPasteItem.DisplayName = carouselCopyPasteItemDTO.DisplayName;
+                    carouselCopyPasteItem.DisplayOrder = carouselCopyPasteItemDTO.DisplayOrder;
+                    carouselCopyPasteItem.ColorType = carouselCopyPasteItemDTO.ColorType;
+                    carouselCopyPasteItem.ColorHue = carouselCopyPasteItemDTO.ColorHue;
+                    carouselCopyPasteItem.ColorLuminosity = carouselCopyPasteItemDTO.ColorLuminosity;
+                    user.CopyPasteItems.Add(carouselCopyPasteItem);
+                }
+                foreach (CarouselFileDropItemDTO carouselFileDropItemDTO in userDTO.FileDropItems)
+                {
+                    CarouselFileDropItem carouselFileDropItem = new CarouselFileDropItem(this.carouselColorSettings);
+                    carouselFileDropItem.DropProcessorName = carouselFileDropItemDTO.DropProcessorName;
+                    carouselFileDropItem.DisplayName = carouselFileDropItemDTO.DisplayName;
+                    carouselFileDropItem.DisplayOrder = carouselFileDropItemDTO.DisplayOrder;
+                    carouselFileDropItem.ColorType = carouselFileDropItemDTO.ColorType;
+                    carouselFileDropItem.ColorHue = carouselFileDropItemDTO.ColorHue;
+                    carouselFileDropItem.ColorLuminosity = carouselFileDropItemDTO.ColorLuminosity;
+                    user.FileDropItems.Add(carouselFileDropItem);
+                }
+                return user;
             }
         }
 

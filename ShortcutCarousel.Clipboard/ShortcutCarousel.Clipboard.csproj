@@ -33,6 +33,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows" />
     <Reference Include="System.Xml.Linq" />
@@ -47,6 +48,12 @@
     <Compile Include="IClipboardService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+	<Target Name="SpicNSpan" AfterTargets="Clean">
+		<RemoveDir Directories="$(TargetDir)" />
+		<!-- bin -->
+		<RemoveDir Directories="$(ProjectDir)$(BaseIntermediateOutputPath)" />
+		<!-- obj -->
+	</Target>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -19,6 +19,11 @@ namespace ShortcutCarousel.Data
             this.carouselUserRepository = carouselUserRepository;
         }
 
+        public IList<string> GetAllUserNames()
+        {
+            return this.carouselUserRepository.GetAllNames();
+        }
+
         public ICarouselUser LoadUserByName(string name)
         {
             return this.carouselUserRepository.GetByName(name);
