@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="ShortcutCarousel.Modules.Shortcut.ShortcutView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ShortcutCarousel.Modules.Shortcut"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        
+    </UserControl.Resources>
+    <UserControl.DataContext>
+        <local:ShortcutViewModelSample></local:ShortcutViewModelSample>
+    </UserControl.DataContext>
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+        <StackPanel Orientation="Vertical">
+            <GroupBox Header="File drop" Padding="10" Height="auto">
+                <ItemsControl DataContext="{Binding CarouselUser}" ItemsSource="{Binding FileDropItems}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding DisplayName}"></Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </GroupBox>
+            <GroupBox Header="Copy paste" Padding="10" Height="auto">
+                <ItemsControl DataContext="{Binding CarouselUser}" ItemsSource="{Binding CopyPasteItems}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding DisplayName}"></Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </GroupBox>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

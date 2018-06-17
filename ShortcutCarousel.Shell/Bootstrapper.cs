@@ -12,6 +12,8 @@ using ShortcutCarousel.Modules;
 using ShortcutCarousel.Settings;
 using ShortcutCarousel.Clipboard;
 using ShortcutCarousel.Data;
+using ShortcutCarousel.Modules.Shortcut;
+using ShortcutCarousel.Model;
 
 namespace ShortcutCarousel.Shell
 {
@@ -25,8 +27,8 @@ namespace ShortcutCarousel.Shell
 		protected override void InitializeShell()
 		{
 			base.InitializeShell();
-            
-			Application.Current.MainWindow = (Shell)this.Shell;
+
+            Application.Current.MainWindow = (Shell)this.Shell;
 			Application.Current.MainWindow.Show();
 		}
 
@@ -39,6 +41,8 @@ namespace ShortcutCarousel.Shell
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(IApplicationSettings).Assembly));
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(IClipboardService).Assembly));
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(IDataService).Assembly));
+            this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(ICarouselUserRepository).Assembly));
+            this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(ShortcutModule).Assembly));
 
             // Module A is referenced in in the project and directly in code.
             //this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(typeof(ModuleA).Assembly));

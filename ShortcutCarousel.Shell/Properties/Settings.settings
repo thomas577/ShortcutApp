@@ -21,7 +21,7 @@
       <Value Profile="(Default)">0.5</Value>
     </Setting>
     <Setting Name="CarouselUsersSavePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">C:\temp</Value>
     </Setting>
   </Settings>
 </SettingsFile>
