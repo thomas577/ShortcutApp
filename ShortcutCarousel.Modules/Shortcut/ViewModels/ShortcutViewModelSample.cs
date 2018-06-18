@@ -25,16 +25,34 @@ namespace ShortcutCarousel.Modules.Shortcut
                 user.FileDropItems.Add(new CarouselFileDropItemSample()
                 {
                     DisplayName = "File Drop 1",
-                    DisplayOrder = 1,
+                    DisplayOrder = 0,
                     DropProcessorName = "DropProcessor1"
                 });
                 user.FileDropItems.Add(new CarouselFileDropItemSample()
                 {
                     DisplayName = "File Drop 2",
-                    DisplayOrder = 2,
+                    DisplayOrder = 1,
                     DropProcessorName = "DropProcessor2"
                 });
-                return user;
+				user.CopyPasteItems.Add(new CarouselCopyPasteItemSample()
+				{
+					DisplayName = "Copy paste 1",
+					DisplayOrder = 0,
+					Content = "Copy me! 1"
+				});
+				user.CopyPasteItems.Add(new CarouselCopyPasteItemSample()
+				{
+					DisplayName = "Copy paste 2",
+					DisplayOrder = 1,
+					Content = "Copy me! 2"
+				});
+				user.CopyPasteItems.Add(new CarouselCopyPasteItemSample()
+				{
+					DisplayName = "Copy paste 3",
+					DisplayOrder = 2,
+					Content = "Copy me! 3"
+				});
+				return user;
             }
             set
             {
@@ -113,4 +131,75 @@ namespace ShortcutCarousel.Modules.Shortcut
             throw new NotImplementedException();
         }
     }
+
+	internal class CarouselCopyPasteItemSample : ICarouselCopyPasteItem
+	{
+		public bool AcceptsDrops
+		{
+			get
+			{
+				return false;
+			}
+		}
+
+		public Color ColorBackground
+		{
+			get
+			{
+				return Colors.Beige;
+			}
+		}
+
+		public double ColorHue
+		{
+			get
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		public double ColorLuminosity
+		{
+			get
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		public ColorType ColorType
+		{
+			get
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		public string Content
+		{
+			get;
+			set;
+		}
+
+		public string DisplayName
+		{
+			get;
+			set;
+		}
+
+		public int DisplayOrder
+		{
+			get;
+			set;
+		}
+
+		public void Clicked()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void ReceiveDrop(IEnumerable<string> paths)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

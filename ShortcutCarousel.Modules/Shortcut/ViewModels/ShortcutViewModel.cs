@@ -20,7 +20,7 @@ namespace ShortcutCarousel.Modules.Shortcut
         public ShortcutViewModel(IDataService dataService, IEventAggregator eventAggregator)
         {
             this.dataService = dataService;
-            this.CarouselUser = this.dataService.LoadUserByName("thomas");
+            this.CarouselUser = this.dataService.LoadUserByName("sampleuser");
         }
 
         #region CarouselUser
