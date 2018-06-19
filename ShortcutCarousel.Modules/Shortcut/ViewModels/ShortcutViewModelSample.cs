@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Input;
 
 namespace ShortcutCarousel.Modules.Shortcut
 {
@@ -59,7 +60,15 @@ namespace ShortcutCarousel.Modules.Shortcut
 
             }
         }
-    }
+
+		public ICommand EditCommand
+		{
+			get
+			{
+				return null;
+			}
+		}
+	}
 
     internal class CarouselFileDropItemSample : ICarouselFileDropItem
     {

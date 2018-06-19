@@ -67,6 +67,11 @@ namespace ShortcutCarousel.Data.Tests
 
             CarouselUser thomas = new CarouselUser();
             thomas.Name = "thomas";
+            thomas.FileDropItems.Add(new CarouselFileDropItem(colorSettings)
+            {
+                DropProcessorName = "processor 1 for thomas",
+                DisplayName = "content 1"
+            });
             thomas.CopyPasteItems.Add(new CarouselCopyPasteItem(clip, colorSettings)
             {
                 Content = "content 1 for thomas",

@@ -86,8 +86,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ApplicationSettings.cs" />
+    <Compile Include="EditorWindow.xaml.cs">
+      <DependentUpon>EditorWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="ShellViewModel.cs" />
+    <Page Include="EditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Shell.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -137,6 +144,10 @@
     <ProjectReference Include="..\ShortcutCarousel.Data\ShortcutCarousel.Data.csproj">
       <Project>{e787326a-1b0d-484d-9b35-5c70eea20db8}</Project>
       <Name>ShortcutCarousel.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShortcutCarousel.Events\ShortcutCarousel.Events.csproj">
+      <Project>{36022DF5-5855-41C1-BEB4-1F7AA06E9BBB}</Project>
+      <Name>ShortcutCarousel.Events</Name>
     </ProjectReference>
     <ProjectReference Include="..\ShortcutCarousel.Model\ShortcutCarousel.Model.csproj">
       <Project>{23345062-54d8-42a1-b63d-eadfeb7100b7}</Project>

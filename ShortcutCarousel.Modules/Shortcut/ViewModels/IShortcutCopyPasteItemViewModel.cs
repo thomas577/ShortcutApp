@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ShortcutCarousel.Model;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace ShortcutCarousel.Modules.Shortcut
 {
-    public interface IShortcutViewModel
+    public interface IShortcutCopyPasteItemViewModel
     {
-        ICarouselUser CarouselUser { get; set; }
-		ICommand EditCommand { get; }
+        string DisplayName { get; }
+        Color ColorBackground { get; }
+        ICommand ClickedCommand { get; }
     }
 }

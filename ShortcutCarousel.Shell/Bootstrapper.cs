@@ -13,6 +13,7 @@ using ShortcutCarousel.Settings;
 using ShortcutCarousel.Clipboard;
 using ShortcutCarousel.Data;
 using ShortcutCarousel.Modules.Shortcut;
+using ShortcutCarousel.Modules.Editor;
 using ShortcutCarousel.Model;
 
 namespace ShortcutCarousel.Shell

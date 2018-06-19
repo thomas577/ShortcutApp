@@ -10,22 +10,22 @@ using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Prism.MefExtensions.Modularity;
 using Microsoft.Practices.ServiceLocation;
 
-namespace ShortcutCarousel.Modules.Shortcut
+namespace ShortcutCarousel.Modules.Editor
 {
-    [ModuleExport(typeof(ShortcutModule))]
-    public class ShortcutModule : IModule
+    [ModuleExport(typeof(EditorModule))]
+    public class EditorModule : IModule
     {
         private IRegionViewRegistry regionViewRegistry;
 
         [ImportingConstructor]
-        public ShortcutModule(IRegionViewRegistry regionViewRegistry)
+        public EditorModule(IRegionViewRegistry regionViewRegistry)
         {
             this.regionViewRegistry = regionViewRegistry;
         }
 
         public void Initialize()
         {
-            this.regionViewRegistry.RegisterViewWithRegion("ShortcutRegion", typeof(ShortcutView));
+            this.regionViewRegistry.RegisterViewWithRegion("EditorRegion", typeof(EditorView));
         }
     }
 }

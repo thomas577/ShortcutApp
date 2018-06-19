@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\lib\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro.Resources">
+      <HintPath>..\lib\MahApps.Metro.Resources.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.Prism">
       <HintPath>..\lib\Microsoft.Practices.Prism.dll</HintPath>
     </Reference>
@@ -61,16 +67,88 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Editor\Views\EditorCopyPasteDetailsView.xaml.cs">
+      <DependentUpon>EditorCopyPasteDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Views\EditorCopyPasteGridView.xaml.cs">
+      <DependentUpon>EditorCopyPasteGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Views\EditorCopyPasteToolbarView.xaml.cs">
+      <DependentUpon>EditorCopyPasteToolbarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\ViewModels\EditorViewModel.cs" />
+    <Compile Include="Editor\Views\EditorFileDropDetailsView.xaml.cs">
+      <DependentUpon>EditorFileDropDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Views\EditorFileDropGridView.xaml.cs">
+      <DependentUpon>EditorFileDropGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\EditorModule.cs" />
+    <Compile Include="Editor\Views\EditorFileDropToolbarView.xaml.cs">
+      <DependentUpon>EditorFileDropToolbarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\ViewModels\IEditorViewModel.cs" />
+    <Compile Include="Editor\Views\EditorView.xaml.cs">
+      <DependentUpon>EditorView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shortcut\Converters\CopyPasteItemToViewModelConverter.cs" />
+    <Compile Include="Shortcut\Converters\FileDropItemToViewModelConverter.cs" />
+    <Compile Include="Shortcut\ViewModels\IShortcutCopyPasteItemViewModel.cs" />
+    <Compile Include="Shortcut\ViewModels\ShortcutCopyPasteItemViewModel.cs" />
+    <Compile Include="Shortcut\Views\ShortcutCopyPasteItemView.xaml.cs">
+      <DependentUpon>ShortcutCopyPasteItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shortcut\ViewModels\IShortcutFileDropItemViewModel.cs" />
+    <Compile Include="Shortcut\ViewModels\ShortcutFileDropItemViewModel.cs" />
     <Compile Include="Shortcut\ViewModels\IShortcutViewModel.cs" />
     <Compile Include="Shortcut\ShortcutModule.cs" />
     <Compile Include="Shortcut\ViewModels\ShortcutViewModelSample.cs" />
     <Compile Include="Shortcut\ViewModels\ShortcutViewModel.cs" />
+    <Compile Include="Shortcut\Views\ShortcutFileDropItemView.xaml.cs">
+      <DependentUpon>ShortcutFileDropItemView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Shortcut\Views\ShortcutView.xaml.cs">
       <DependentUpon>ShortcutView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Editor\Views\EditorCopyPasteDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Editor\Views\EditorCopyPasteGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Editor\Views\EditorCopyPasteToolbarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Editor\Views\EditorFileDropDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Editor\Views\EditorFileDropGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Editor\Views\EditorFileDropToolbarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Editor\Views\EditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shortcut\Views\ShortcutCopyPasteItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shortcut\Views\ShortcutFileDropItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Shortcut\Views\ShortcutView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -80,6 +158,10 @@
     <ProjectReference Include="..\ShortcutCarousel.Data\ShortcutCarousel.Data.csproj">
       <Project>{E787326A-1B0D-484D-9B35-5C70EEA20DB8}</Project>
       <Name>ShortcutCarousel.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShortcutCarousel.Events\ShortcutCarousel.Events.csproj">
+      <Project>{36022DF5-5855-41C1-BEB4-1F7AA06E9BBB}</Project>
+      <Name>ShortcutCarousel.Events</Name>
     </ProjectReference>
     <ProjectReference Include="..\ShortcutCarousel.Model\ShortcutCarousel.Model.csproj">
       <Project>{23345062-54D8-42A1-B63D-EADFEB7100B7}</Project>

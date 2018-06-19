@@ -7,7 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 	<UserControl.Resources>
-		<SolidColorBrush x:Key="BrushIndigo" Color="#FF373470"></SolidColorBrush>
+        <local:FileDropItemToViewModelConverter x:Key="FileDropItemToViewModelConverter"></local:FileDropItemToViewModelConverter>
+        <local:CopyPasteItemToViewModelConverter x:Key="CopyPasteItemToViewModelConverter"></local:CopyPasteItemToViewModelConverter>
+        <SolidColorBrush x:Key="BrushHeader" Color="#FF4F4F4F"></SolidColorBrush>
 		<Style x:Key="StyleGroupBox" TargetType="{x:Type GroupBox}">
 			<Setter Property="Template">
 				<Setter.Value>
@@ -33,26 +35,36 @@
 	<UserControl.DataContext>
 		<local:ShortcutViewModelSample></local:ShortcutViewModelSample>
 	</UserControl.DataContext>
-	<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-		<StackPanel Orientation="Vertical">
-			<GroupBox Header="File drop" Padding="10" Height="auto" Style="{StaticResource StyleGroupBox}" Background="#FF4F4F4F">
-				<ItemsControl DataContext="{Binding CarouselUser}" ItemsSource="{Binding FileDropItems}">
-					<ItemsControl.ItemTemplate>
-						<DataTemplate>
-							<Button Content="{Binding DisplayName}"></Button>
-						</DataTemplate>
-					</ItemsControl.ItemTemplate>
-				</ItemsControl>
-			</GroupBox>
-			<GroupBox Header="Copy paste" Padding="10" Height="auto" Style="{StaticResource StyleGroupBox}" Background="#FF4F4F4F">
-				<ItemsControl DataContext="{Binding CarouselUser}" ItemsSource="{Binding CopyPasteItems}">
-					<ItemsControl.ItemTemplate>
-						<DataTemplate>
-							<Button Content="{Binding DisplayName}"></Button>
-						</DataTemplate>
-					</ItemsControl.ItemTemplate>
-				</ItemsControl>
-			</GroupBox>
-		</StackPanel>
-	</ScrollViewer>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="File"></MenuItem>
+            <MenuItem Header="Edit" Command="{Binding EditCommand}"></MenuItem>
+        </Menu>
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <StackPanel Orientation="Vertical">
+                <GroupBox Header="File drop" Padding="10" Height="auto" Style="{StaticResource StyleGroupBox}" Background="{StaticResource BrushHeader}">
+                    <ItemsControl DataContext="{Binding CarouselUser}" ItemsSource="{Binding FileDropItems}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <local:ShortcutFileDropItemView DataContext="{Binding Converter={StaticResource FileDropItemToViewModelConverter}}"></local:ShortcutFileDropItemView>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </GroupBox>
+                <GroupBox Header="Copy paste" Padding="10" Height="auto" Style="{StaticResource StyleGroupBox}" Background="{StaticResource BrushHeader}">
+                    <ItemsControl DataContext="{Binding CarouselUser}" ItemsSource="{Binding CopyPasteItems}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <local:ShortcutCopyPasteItemView DataContext="{Binding Converter={StaticResource CopyPasteItemToViewModelConverter}}"></local:ShortcutCopyPasteItemView>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
 </UserControl>

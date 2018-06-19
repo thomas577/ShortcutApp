@@ -9,6 +9,9 @@ using ShortcutCarousel.Settings;
 using System.Windows.Input;
 using Microsoft.Practices.Prism.Commands;
 using System.Windows;
+using Microsoft.Practices.Prism.Events;
+using ShortcutCarousel.Events;
+using ShortcutCarousel.Model;
 
 namespace ShortcutCarousel.Shell
 {
@@ -16,11 +19,15 @@ namespace ShortcutCarousel.Shell
     public class ShellViewModel : NotificationObject
     {
         private IApplicationSettings applicationSettings;
+		private IEventAggregator eventAggregator;
 
-        [ImportingConstructor]
-        public ShellViewModel(IApplicationSettings applicationSettings)
+		[ImportingConstructor]
+        public ShellViewModel(IApplicationSettings applicationSettings, IEventAggregator eventAggregator)
         {
             this.applicationSettings = applicationSettings;
+			this.eventAggregator = eventAggregator;
+
+			this.eventAggregator.GetEvent<EditUserEvent>().Subscribe(this.OpenEditorFor);
         }
 
         #region WindowWidth
@@ -137,5 +144,10 @@ namespace ShortcutCarousel.Shell
             return true;
         }
         #endregion SaveWindowSettingsCommand
+
+		private void OpenEditorFor(ICarouselUser user)
+		{
+			new EditorWindow().Show();
+		}
     }
 }

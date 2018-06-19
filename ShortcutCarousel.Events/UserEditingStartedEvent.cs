@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ShortcutCarousel.Events
 {
-    public class CarouselUserChangedEvent : CompositePresentationEvent<ICarouselUser>
+    public class UserEditingStartedEvent : CompositePresentationEvent<ICarouselUser>
     {
 
     }
