@@ -10,9 +10,6 @@ using System.Runtime.Serialization;
 
 namespace ShortcutCarousel.Model
 {
-	[DataContract]
-    [KnownType(typeof(CarouselCopyPasteItem))]
-    [KnownType(typeof(CarouselFileDropItem))]
 	public abstract class CarouselItem : NotificationObject, ICarouselItem
 	{
 		private ICarouselColorSettings carouselColorSettings;
@@ -28,7 +25,6 @@ namespace ShortcutCarousel.Model
 		public abstract bool AcceptsDrops { get; }
 
 		private string displayName;
-		[DataMember]
 		public string DisplayName
 		{
 			get
@@ -41,12 +37,11 @@ namespace ShortcutCarousel.Model
 				{
 					this.displayName = value;
 					this.RaisePropertyChanged(() => this.DisplayName);
-				}
+                }
 			}
 		}
 
 		private int displayOrder;
-		[DataMember]
 		public int DisplayOrder
 		{
 			get
@@ -81,7 +76,6 @@ namespace ShortcutCarousel.Model
 		}
 
 		private ColorType colorType;
-		[DataMember]
 		public ColorType ColorType
 		{
 			get
@@ -100,7 +94,6 @@ namespace ShortcutCarousel.Model
 		}
 
 		private double colorHue;
-		[DataMember]
 		public double ColorHue
 		{
 			get
@@ -119,7 +112,6 @@ namespace ShortcutCarousel.Model
 		}
 
 		private double colorLuminosity;
-		[DataMember]
 		public double ColorLuminosity
 		{
 			get

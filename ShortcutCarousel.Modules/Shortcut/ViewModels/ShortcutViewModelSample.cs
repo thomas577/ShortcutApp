@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Input;
+using System.ComponentModel;
 
 namespace ShortcutCarousel.Modules.Shortcut
 {
@@ -68,7 +69,9 @@ namespace ShortcutCarousel.Modules.Shortcut
 				return null;
 			}
 		}
-	}
+
+        public event PropertyChangedEventHandler PropertyChanged;
+    }
 
     internal class CarouselFileDropItemSample : ICarouselFileDropItem
     {
@@ -129,6 +132,8 @@ namespace ShortcutCarousel.Modules.Shortcut
             get;
             set;
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public void Clicked()
         {
@@ -201,7 +206,9 @@ namespace ShortcutCarousel.Modules.Shortcut
 			set;
 		}
 
-		public void Clicked()
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void Clicked()
 		{
 			throw new NotImplementedException();
 		}

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,8 +8,8 @@ using System.Windows.Media;
 
 namespace ShortcutCarousel.Model
 {
-	public interface ICarouselItem
-	{
+	public interface ICarouselItem : INotifyPropertyChanged
+    {
 		void Clicked();
 		void ReceiveDrop(IEnumerable<string> paths);
 

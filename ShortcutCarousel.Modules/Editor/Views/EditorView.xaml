@@ -6,6 +6,21 @@
              xmlns:local="clr-namespace:ShortcutCarousel.Modules.Editor"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+	<UserControl.Resources>
+		<Style TargetType="{x:Type DataGrid}">
+			<Style.Setters>
+				<Setter Property="AutoGenerateColumns" Value="False"></Setter>
+				<Setter Property="CanUserReorderColumns" Value="True"></Setter>
+				<Setter Property="CanUserResizeColumns" Value="True"></Setter>
+				<Setter Property="CanUserResizeRows" Value="False"></Setter>
+				<Setter Property="CanUserSortColumns" Value="True"></Setter>
+				<Setter Property="SelectionMode" Value="Single"></Setter>
+				<Setter Property="SelectionUnit" Value="FullRow"></Setter>
+				<Setter Property="AlternatingRowBackground" Value="#FF444444"></Setter>
+				<Setter Property="AlternationCount" Value="2"></Setter>
+			</Style.Setters>
+		</Style>
+	</UserControl.Resources>
     <TabControl>
         <TabItem Header="File drop">
             <Grid>

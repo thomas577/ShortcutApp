@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ using System.Windows.Media;
 
 namespace ShortcutCarousel.Modules.Shortcut
 {
-    public interface IShortcutCopyPasteItemViewModel
+    public interface IShortcutCopyPasteItemViewModel : INotifyPropertyChanged
     {
         string DisplayName { get; }
         Color ColorBackground { get; }

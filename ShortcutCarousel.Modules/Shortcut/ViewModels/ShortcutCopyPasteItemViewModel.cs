@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using ShortcutCarousel.Model;
 using Microsoft.Practices.Prism.Commands;
+using System.ComponentModel;
 
 namespace ShortcutCarousel.Modules.Shortcut
 {
@@ -18,6 +19,7 @@ namespace ShortcutCarousel.Modules.Shortcut
         public ShortcutCopyPasteItemViewModel(ICarouselCopyPasteItem carouselCopyPasteItem)
         {
             this.carouselCopyPasteItem = carouselCopyPasteItem;
+            this.carouselCopyPasteItem.PropertyChanged += (object sender, PropertyChangedEventArgs e) => { this.RaisePropertyChanged(e.PropertyName); };
         }
 
         public Color ColorBackground

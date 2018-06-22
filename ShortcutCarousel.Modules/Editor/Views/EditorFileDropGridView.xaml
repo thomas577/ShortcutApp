@@ -7,18 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 	<Grid>
-		<DataGrid ItemsSource="{Binding CarouselUser.FileDropItems}" 
-				  AutoGenerateColumns="False"
-				  CanUserReorderColumns="True" 
-				  CanUserResizeColumns="True" 
-			      CanUserResizeRows="False" 
-				  CanUserSortColumns="True"
-				  SelectionMode="Single"
-				  SelectionUnit="FullRow"
-				  AlternatingRowBackground="Gainsboro"
-				  AlternationCount="2">
+		<DataGrid ItemsSource="{Binding CarouselUser.FileDropItems}">
 			<DataGrid.Columns>
-				<DataGridTextColumn Header="Displayed Name" Binding="{Binding DisplayName}" />
+				<DataGridTextColumn Header="Displayed Name" Binding="{Binding DisplayName}" IsReadOnly="False" />
+                <DataGridTemplateColumn Header="Color" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Border VerticalAlignment="Stretch" Width="50">
+                                <Border.Background>
+                                    <SolidColorBrush Color="{Binding ColorBackground}"></SolidColorBrush>
+                                </Border.Background>
+                            </Border>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
 			</DataGrid.Columns>
 		</DataGrid>
 	</Grid>

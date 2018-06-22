@@ -1,4 +1,4 @@
-﻿<mahcontrols:MetroWindow x:Class="ShortcutCarousel.Shell.EditorWindow"
+﻿<Window x:Class="ShortcutCarousel.Shell.EditorWindow"
                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,6 +7,8 @@
                          xmlns:cad="http://www.codeplex.com/prism"
                          xmlns:local="clr-namespace:ShortcutCarousel.Shell"
                          mc:Ignorable="d"
-                         Title="EditorWindow" Height="300" Width="300">      
+                         Title="Editor" 
+                         Height="600" 
+                         Width="700">      
     <ContentControl cad:RegionManager.RegionName="EditorRegion"></ContentControl>
-</mahcontrols:MetroWindow>
+</Window>
