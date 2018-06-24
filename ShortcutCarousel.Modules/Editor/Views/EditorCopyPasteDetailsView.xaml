@@ -19,7 +19,7 @@
 				<RowDefinition Height="*"></RowDefinition>
 			</Grid.RowDefinitions>
 			<TextBlock Grid.Row="0" Text="Display name"></TextBlock>
-			<TextBox Grid.Row="1" Text="{Binding DisplayName}"></TextBox>
+			<TextBox Grid.Row="1" Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged}"></TextBox>
 		</Grid>
 		<Grid Grid.Column="1">
 			<Grid.RowDefinitions>

@@ -26,6 +26,8 @@ namespace ShortcutCarousel.Modules.Editor
         public void Initialize()
         {
             this.regionViewRegistry.RegisterViewWithRegion("EditorRegion", typeof(EditorView));
-        }
-    }
+            this.regionViewRegistry.RegisterViewWithRegion("EditorFileDropDetails", typeof(EditorFileDropDetailsView));
+			this.regionViewRegistry.RegisterViewWithRegion("EditorCopyPasteDetails", typeof(EditorCopyPasteDetailsView));
+		}
+	}
 }

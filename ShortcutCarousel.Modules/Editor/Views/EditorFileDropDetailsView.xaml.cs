@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,14 +16,22 @@ using System.Windows.Shapes;
 
 namespace ShortcutCarousel.Modules.Editor
 {
-    /// <summary>
-    /// Interaction logic for EditorFileDropDetailsView.xaml
-    /// </summary>
-    public partial class EditorFileDropDetailsView : UserControl
+	/// <summary>
+	/// Interaction logic for EditorFileDropDetailsView.xaml
+	/// </summary>
+	[Export(typeof(EditorFileDropDetailsView))]
+	public partial class EditorFileDropDetailsView : UserControl
     {
         public EditorFileDropDetailsView()
         {
             InitializeComponent();
         }
+
+		[ImportingConstructor]
+		public EditorFileDropDetailsView(IEditorFileDropDetailsViewModel editorFileDropDetailsViewModel)
+			: this()
+		{
+			this.DataContext = editorFileDropDetailsViewModel;
+		}
     }
 }

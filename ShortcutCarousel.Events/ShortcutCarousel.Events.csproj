@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CarouselUserChangedEvent.cs" />
+    <Compile Include="CopyPasteItemSelectedInGridEvent.cs" />
     <Compile Include="EditUserEvent.cs" />
+    <Compile Include="FileDropItemSelectedInGridEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserEditingStartedEvent.cs" />
   </ItemGroup>

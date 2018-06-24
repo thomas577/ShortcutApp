@@ -97,7 +97,11 @@ namespace ShortcutCarousel.Modules.Shortcut
             {
                 throw new NotImplementedException();
             }
-        }
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
 
         public double ColorLuminosity
         {
@@ -105,7 +109,11 @@ namespace ShortcutCarousel.Modules.Shortcut
             {
                 throw new NotImplementedException();
             }
-        }
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
 
         public ColorType ColorType
         {
@@ -113,7 +121,11 @@ namespace ShortcutCarousel.Modules.Shortcut
             {
                 throw new NotImplementedException();
             }
-        }
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
 
         public string DisplayName
         {
@@ -170,6 +182,10 @@ namespace ShortcutCarousel.Modules.Shortcut
 			{
 				throw new NotImplementedException();
 			}
+			set
+			{
+				throw new NotImplementedException();
+			}
 		}
 
 		public double ColorLuminosity
@@ -178,11 +194,19 @@ namespace ShortcutCarousel.Modules.Shortcut
 			{
 				throw new NotImplementedException();
 			}
+			set
+			{
+				throw new NotImplementedException();
+			}
 		}
 
 		public ColorType ColorType
 		{
 			get
+			{
+				throw new NotImplementedException();
+			}
+			set
 			{
 				throw new NotImplementedException();
 			}

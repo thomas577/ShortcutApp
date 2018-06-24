@@ -41,9 +41,45 @@ namespace ShortcutCarousel.Modules.Editor
                 }
             }
         }
-        #endregion CarouselUser
+		#endregion CarouselUser
 
-        private void CarouselUserChanged(ICarouselUser carouselUser)
+		private ICarouselCopyPasteItem copyPasteItemSelected;
+		public ICarouselCopyPasteItem CopyPasteItemSelected
+		{
+			get
+			{
+				return this.copyPasteItemSelected;
+			}
+			set
+			{
+				if (this.copyPasteItemSelected != value)
+				{
+					this.copyPasteItemSelected = value;
+					this.eventAggregator.GetEvent<CopyPasteItemSelectedInGridEvent>().Publish(this.copyPasteItemSelected);
+					this.RaisePropertyChanged(() => this.CopyPasteItemSelected);
+				}
+			}
+		}
+
+		private ICarouselFileDropItem fileDropItemSelected;
+		public ICarouselFileDropItem FileDropItemSelected
+		{
+			get
+			{
+				return this.fileDropItemSelected;
+			}
+			set
+			{
+				if (this.fileDropItemSelected != value)
+				{
+					this.fileDropItemSelected = value;
+					this.eventAggregator.GetEvent<FileDropItemSelectedInGridEvent>().Publish(this.fileDropItemSelected);
+					this.RaisePropertyChanged(() => this.FileDropItemSelected);
+				}
+			}
+		}
+
+		private void CarouselUserChanged(ICarouselUser carouselUser)
         {
             if (this.CarouselUser == null)
             {

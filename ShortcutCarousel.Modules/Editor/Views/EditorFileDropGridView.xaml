@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 	<Grid>
-		<DataGrid ItemsSource="{Binding CarouselUser.FileDropItems}">
+		<DataGrid ItemsSource="{Binding CarouselUser.FileDropItems}"  SelectedItem="{Binding FileDropItemSelected}">
 			<DataGrid.Columns>
 				<DataGridTextColumn Header="Displayed Name" Binding="{Binding DisplayName}" IsReadOnly="False" />
                 <DataGridTemplateColumn Header="Color" IsReadOnly="True">

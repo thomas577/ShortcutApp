@@ -8,6 +8,6 @@ namespace ShortcutCarousel.Model
 {
     public interface ICarouselCopyPasteItem : ICarouselItem
     {
-        string Content { get; }
+        string Content { get; set; }
     }
 }

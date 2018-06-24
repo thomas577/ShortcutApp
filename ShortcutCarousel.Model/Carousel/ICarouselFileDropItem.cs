@@ -8,6 +8,6 @@ namespace ShortcutCarousel.Model
 {
     public interface ICarouselFileDropItem : ICarouselItem
     {
-        string DropProcessorName { get; }
+        string DropProcessorName { get; set; }
     }
 }
